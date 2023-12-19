@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+
+    -->
+    <script language="JavaScript">
+        //1.定义正则表达式
+        // var reg = /^a/gim;  // ^表示匹配开始  $表示匹配结尾
+        var reg = /b$/gim;  // ^表示匹配开始  $表示匹配结尾
+        //2.定义待校验的字符串
+        var str = "ahelloworldb";
+        //3.校验
+        str = str.replace(reg,"A");
+        document.write(str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

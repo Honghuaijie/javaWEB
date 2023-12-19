@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/javaWeb.iml" filepath="$PROJECT_DIR$/javaWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb-begin/javaweb-begin.iml" filepath="$PROJECT_DIR$/javaweb-begin/javaweb-begin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb-begin-jdbc/javaweb-begin-jdbc.iml" filepath="$PROJECT_DIR$/javaweb-begin-jdbc/javaweb-begin-jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro02-javaweb-servlet/pro02-javaweb-servlet.iml" filepath="$PROJECT_DIR$/pro02-javaweb-servlet/pro02-javaweb-servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro03-fruit1.4-thymeleaf/pro03-fruit1.4-thymeleaf.iml" filepath="$PROJECT_DIR$/pro03-fruit1.4-thymeleaf/pro03-fruit1.4-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro04-fruit1.5-thymeleaf/pro04-fruit1.5-thymeleaf.iml" filepath="$PROJECT_DIR$/pro04-fruit1.5-thymeleaf/pro04-fruit1.5-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro05-fruit1.6-pagination/pro05-fruit1.6-pagination.iml" filepath="$PROJECT_DIR$/pro05-fruit1.6-pagination/pro05-fruit1.6-pagination.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro06-fruit1.7-mvc/pro06-fruit1.7-mvc.iml" filepath="$PROJECT_DIR$/pro06-fruit1.7-mvc/pro06-fruit1.7-mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro07-fruit1.8-mvc-reflect/pro07-fruit1.8-mvc-reflect.iml" filepath="$PROJECT_DIR$/pro07-fruit1.8-mvc-reflect/pro07-fruit1.8-mvc-reflect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro08-fruit1.9-mvc-dispatcherServlet/pro08-fruit1.9-mvc-dispatcherServlet.iml" filepath="$PROJECT_DIR$/pro08-fruit1.9-mvc-dispatcherServlet/pro08-fruit1.9-mvc-dispatcherServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro09-fruit2.0-mvc-controller/pro09-fruit2.0-mvc-controller.iml" filepath="$PROJECT_DIR$/pro09-fruit2.0-mvc-controller/pro09-fruit2.0-mvc-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro10-fruit-copy/pro10-fruit-copy.iml" filepath="$PROJECT_DIR$/pro10-fruit-copy/pro10-fruit-copy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro11-fruit2.1-mvc-controller-ioc/pro11-fruit2.1-mvc-controller-ioc.iml" filepath="$PROJECT_DIR$/pro11-fruit2.1-mvc-controller-ioc/pro11-fruit2.1-mvc-controller-ioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro12-servlet-api/pro12-servlet-api.iml" filepath="$PROJECT_DIR$/pro12-servlet-api/pro12-servlet-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro13-filter-listener/pro13-filter-listener.iml" filepath="$PROJECT_DIR$/pro13-filter-listener/pro13-filter-listener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro14-qqzone/pro14-qqzone.iml" filepath="$PROJECT_DIR$/pro14-qqzone/pro14-qqzone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro15-qqzone1.0/pro15-qqzone1.0.iml" filepath="$PROJECT_DIR$/pro15-qqzone1.0/pro15-qqzone1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro16-book/pro16-book.iml" filepath="$PROJECT_DIR$/pro16-book/pro16-book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro17-book2.0/pro17-book2.0.iml" filepath="$PROJECT_DIR$/pro17-book2.0/pro17-book2.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro18-cookie-kaptcha-js/pro18-cookie-kaptcha-js.iml" filepath="$PROJECT_DIR$/pro18-cookie-kaptcha-js/pro18-cookie-kaptcha-js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro19-book3.0/pro19-book3.0.iml" filepath="$PROJECT_DIR$/pro19-book3.0/pro19-book3.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro20-vue-axios-json/pro20-vue-axios-json.iml" filepath="$PROJECT_DIR$/pro20-vue-axios-json/pro20-vue-axios-json.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro21-book4.0-cart-vue-axios/pro21-book4.0-cart-vue-axios.iml" filepath="$PROJECT_DIR$/pro21-book4.0-cart-vue-axios/pro21-book4.0-cart-vue-axios.iml" />
+    </modules>
+  </component>
+</project>

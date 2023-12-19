@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+
+    -->
+    <script language="JavaScript">
+        //1.定义正则表达式
+        // var reg = /[abc]/gim;  // [] 表示集合，表示只要有a或有b或有c都匹配，如果没有中括号，表示必须精确匹配abc
+        // var reg = /[^abc]/gim;  //   ^表示取反
+        var reg = /[a-g]/gim;  //   -表示左右两个字符之间的字符
+        //2.定义待校验的字符串
+        var str = "abhelloworldc";
+        //3.校验
+        str = str.replace(reg,"A");
+        document.write(str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

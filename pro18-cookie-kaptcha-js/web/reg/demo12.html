@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+
+    -->
+    <script language="JavaScript">
+        //1.定义正则表达式
+        var reg = /a|d/gim;  //   -表示左右两个字符之间的字符
+        //2.定义待校验的字符串
+        var str = "abcdefg";
+        //3.校验
+        str = str.replace(reg,"_");
+        document.write(str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

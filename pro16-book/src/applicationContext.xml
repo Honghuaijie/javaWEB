@@ -1,0 +1,41 @@
+<?xml  version="1.0" encoding="utf-8" ?>
+<!-- 文档类型定义 -->
+<!--
+* 表示可以有0-n个
+-->
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean*)>
+        <!ELEMENT bean (property*)>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #IMPLIED>
+        <!ATTLIST property name CDATA #IMPLIED>
+        <!ATTLIST property ref  IDREF #IMPLIED >
+]>
+<beans>
+    <!-- DAO 层 -->
+    <bean id="userDao" class="com.hhj.book.dao.impl.UserDAOImpl"/>
+
+
+    <!-- Service 层 -->
+    <bean id="userService" class="com.hhj.book.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+
+
+    <!-- controller 层 -->
+    <bean id="user" class="com.hhj.book.controller.UserController">
+        <property name="userService" ref="userService" />
+    </bean>
+
+
+    <bean id="page" class="com.hhj.myssm.myspringmvc.PageController"/>
+
+</beans>
+
+
+
+
+

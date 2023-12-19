@@ -1,0 +1,134 @@
+学习内容：
+1.再次学习Servlet的初始化方法
+    1） servlet声明周期：实例化、初始化、服务、消耗
+    2）servlet中的初始化方法有两个：init（）、init(config)
+    其中带参数的方法代码如下：
+    public void init(ServletConfig config) throw servletException{
+        this.config = config;
+    }
+    另外一个无参的init方法如下
+    public void init() throw servletException{
+    }
+    如果我们想要在servlet初始化时做一些准备工作，那么我们就可以重写init方法
+    我们可以通过如下步骤去获取初始化设置的数据
+    - 获取config对象：servletConfig config = getServletConfig
+    - 获取初始化参数值    String initValue = config.getInitParameter("hello");
+    3)在 web.xml文件中配置servlet
+    4）也可以通过注解的方式进行配置
+            @WebServlet(urlPatterns = {"/demo01"},
+            initParams = {
+                @WebInitParam(name="hello",value="word"),
+                @WebInitParam(name="uname",value="jim")
+            }
+            )
+2.学习Servlet中的servletContext和<context-param>
+    1) 获取servletContext，有很多方法
+        在初始化方法中：getServletContext()；
+        在服务方法中也可以通过request对象获取，也可以通过session获取
+        request.ServletContext() ;  Session().getServletContext()
+    2) 获取初始化值：
+        servletContext.getinitParameter();
+3.什么是业务层
+    1）Model1 和Model2
+        MVC: Model（模型） View（视图） Controller（控制器）
+        视图层：用于做数据展示以及和用户交互的一个界面
+        控制层：能做接收客户端的请求，具体的业务功能还是需要借助于模型组件来完成
+        模型层：模型分为很多种，有比较简单的pojo/vo(value object), 有业务模型组件，有数据访问层组件
+            1）pojo/vo：值对象
+            2）DAO：数据访问对象
+            3）BO：业务对象
+        区分业务对象和数据访问对象：
+        1）DAO中的方法都是单精度方法或者称之为细粒度方法。什么叫单精度？一个方法只考虑一个操作，（比如说insert只考虑添加，查询就是select操作...）
+        2）BO中的方法属于业务方法，而实际的业务是比较复杂的，因此业务方法的粒度是比较粗的
+            注册这个功能属于业务功能，也就是说注册属于业务方法。
+            那么这个业务方法中包含了多个DAO方法。也就是说注册这个业务功能需要通过多个DAO方法的组合调用，从而完成注册功能的开发。
+            注册：
+                1.检测用户名是否已经被注册---DAO中的select操作
+                2.向用户表新增新用户记录---DAO中的insert操作
+                3.向用户积分表新增一条记录（新用户默认初始化积分100 分）---DAO中的insert操作
+                4.向系统消息表新增一条记录（XXX新用户注册了，需要根据通讯录信息向他的联系人推送消息）--DAO中的insert操作
+                5.向系统日志表新增一条记录（某用户在某IP在某年某日某秒注册）---DAO中的insert操作
+                6. .....
+        3) 在库存系统中 添加业务层组件
+
+4.IOC
+    1）耦合/依赖
+        依赖指的是某某某离不开某某某
+        在软件系统中，层与层之间是存在依赖。我们也称为耦合
+        我们系统架构或设计的原则是：高内聚，低耦合。
+        层内部的组成应该是高度聚合的，而层与层之间的关系应该是低耦合的，最理想的情况就是0耦合（就是没有耦合）
+    2) IOC - 控制反转 / DI- 依赖注入
+        控制反转：
+        1）之前在Servlet中，我们创建service对象，
+        FruitService fruitService = new FruitServiceImpl();
+        2）之后我们在applicationContext.xml中定义了fruitService。然后通过解析XML，产生fruitService实例存放到beanMap中，这个beanMap在一个beanMap
+        因此，我们转移（改变）了之前的service实例，dao实例等等他们的生命周期。控制权从程序员转移到beanFactory。这个现象我们称之为控制反转
+
+        依赖注入：
+        1）之前我们在控制层是FruitService fruitService = new FruitServiceImpl();
+        那么控制层和service层存在耦合
+        2）之后，我们把将代码修改成FruitService fruitService = null,然后再配置文件中配置
+        <bean id = "fruit" class = "...fruitController">
+            <property name="fruitService" ref="fruitService"/>
+        </bean>
+
+
+
+5.过滤器Filter
+1）Filter也属于Servlet规范
+2）Filter开发步骤：新建类实现Filter接口，然后实现其中的三个方法：init、doFilter、destroy
+    配置Filter，可以用注解@WebFilter，也可以使用XML文件<filter>  <filter-mapping>
+3) Filter在配置时，和servlet一样，也可以配置通配符 比如：@WebFilter("*.do") 表示拦截所有已.do结尾的请求
+4）过滤器链
+    1） 执行的顺序依次是： A B C demo03  C2 B2 A2
+    2）如果采取的是注解的方式进行配置，那么过滤器链的拦截顺序是按照全类型的先后顺序排序的
+    3）如果采取的是xml的方式进行配置，那么按照配置的先后顺序进行排序
+    4）一半采取注解，一半配置，那么拦截顺序是先拦截配置文件中的，然后再拦截注解
+
+6.事务管理
+    1) 涉及到的组件：
+    - openSessionInViewFilter 该过滤器是用来开启事务的
+    - TransactionManager  用来处理事务
+    - BaseDao
+    - ThreadLocal
+
+    2) ThreadLocal
+      - get
+      - set
+      - Threadlocal称之为本地线程。我们通过set方法在当前线程上存储数据、通过get方法在当前线程上获取数据
+      - set方法源码分析
+      //一个线程有一个map 而map中的key是threadLocal实例
+      public void set(T value) {
+              Thread t = Thread.currentThread();  //获取当前的线程
+              ThreadLocalMap map = getMap(t); //每一个线程都维护各自的一个容器（ThreadLocalMap)
+              if (map != null)
+                  map.set(this, value);  //这里的key对应的是ThreadLocal,因为我们的组件中需要传输（共享）的对象可能会有多个
+              else
+                  createMap(t, value); //默认情况下map是没有初始化的，那么第一次往其中添加数据时，会去初始化
+          }
+      -- get方法源码：
+       public T get() {
+          Thread t = Thread.currentThread(); //获取当前的线程
+          ThreadLocalMap map = getMap(t); //获取和这个线程相关的map
+          if (map != null) {
+              ThreadLocalMap.Entry e = map.getEntry(this);  //this指的是ThreadLocal对象，通过他才能知道是哪一个key的值
+              if (e != null) {
+                  @SuppressWarnings("unchecked")
+                  T result = (T)e.value; //entry.value 就可以获取到值
+                  return result;
+              }
+          }
+          return setInitialValue();
+       }
+
+7.监听器
+    1）ServletContextListener  -- 监听ServletContext对象的创建和销毁的过程
+    2）HttpSessionListener - 监听HttpSession对象的创建和销毁的过程
+    3）ServletRequestListener -监听ServletRequest对象的创建和销毁的过程
+    4）ServletContextAttributeListener -监听ServletContext的保存作用域的改动（Add-remove-replace）
+    5）HttpSessionAttributeListener  - 监听HttpSession保存作用域的改动
+    6）ServletRequestAttributeListener  - 监听ServletRequest的保存作用域的改动（Add-remove-replace）
+    7）HttpSessionBindingListener  - 监听某个对象在session域中的创建和移除
+    8）HttpSessionActivationListener - 监听某个对象在session域中的序列化与反序列化的过程
+
+8. ServletContextListener的应用 - ContextLoaderListener

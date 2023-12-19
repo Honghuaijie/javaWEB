@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="css/index.css">
+        <meta charset="UTF-8">
+        <title>fruit</title>
+    </head>
+    <body>
+        <div id="div_container">
+            <div id="div_fruit_list">
+                <p class="center f30">编辑库存信息2</p>
+                <!-- 跳转到http://localhost:8080/pro04/update.do  -->
+               <form th:action="@{/updata.do}" method="post">
+                   <!-- th:object="${fruit}":  拿到fruit对象，并且在table中，无需写成fruit.name 直接写成name就可以了 -->
+                    <table id="tbl_fruit" th:object="${fruit}">
+                        <!-- 这里我们不仅需要将id发送出去，而且还不能让id显示出来  -->
+                        <input type="hidden" name="fid" th:value="*{fid}"/>
+                        <tr>
+                            <th class="w20"> 名称</th>
+    <!--                        <td><input type="text" name="fname" th:value="${fruit.fname}" /></td>-->
+                            <td><input type="text" name="fname" th:value="*{fname}" /></td>
+                        </tr>
+                        <tr>
+                            <th class="w20"> 单价</th>
+                            <td><input type="text" name="price" th:value="*{price}" /></td>
+                        </tr>
+                        <tr>
+                            <th class="w20"> 库存</th>
+                            <td><input type="text" name="fcount" th:value="*{fcount}" /></td>
+                        </tr>
+                        <tr>
+                            <th class="w20"> 备注：</th>
+                            <td><input type="text" name="remark" th:value="*{remark}" /></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2"><input type="submit" value="修改" /></th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

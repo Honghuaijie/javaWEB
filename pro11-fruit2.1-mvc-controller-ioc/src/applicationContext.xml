@@ -1,0 +1,49 @@
+<?xml  version="1.0" encoding="utf-8" ?>
+<!-- 表示多个javabeans对象 -->
+<beans>
+    <!-- bean表示我们需要的组件，而其子节点property 是用来表示当前组件与其他组件的依赖关系 -->
+    <!-- bean中的class就是用来存放其对应组件的全类名 -->
+    <!-- DAO层 -->
+    <bean id="fruitDao" class="com.hhj.fruits.impl.FruitDaoImpl"></bean>
+    <!-- 业务层   由于业务层需要调用DAO层的方法，所以需要有一个DAO属性-->
+    <bean id="fruitService" class="com.hhj.fruits.service.imp.FruitServiceImp">
+        <!-- property标签用来表示属性 ：name表示属性名； ref表示引用其他bean的id值 -->
+        <property name="fruitDao" ref="fruitDao" />
+    </bean>
+    <!-- 这个bean标签的作用 是将来 servletpath中涉及的名字对应的是fruit,那么就要FruitController这个类来处理 -->
+    <!-- 控制器层，由于内部需要调用业务层，所有需要有个业务层的属性-->
+    <bean id="fruit" class="com.hhj.controllers.FruitControllers">
+        <property name="fruitService" ref="fruitService" />
+    </bean>
+</beans>
+
+
+<!--
+ Node节点
+    Element元素节点
+    Text 文本节点
+<sname>jim<sname>
+
+ -->
+
+<!--
+1.概念：
+HTML:超文本标记语言
+XML：可扩展的标记语言
+
+HTML是XML的一个子集
+
+2.XML包含三个部分：
+1）：XML声明，而且声明这一行代码必须在XML文件的第一行
+2）：DTD：文档类型定义
+3）：XML正文
+
+
+-->
+
+
+
+
+
+
+

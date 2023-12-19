@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击事件</title>
+    <script language="JavaScript" src="script/vue.js"></script>
+    <script language="JavaScript">
+        //定义js的对象方式二：
+        window.onload = function(){
+            var vue = new Vue({
+                "el":"#div0",
+                data:{
+                    msg:"hello world"
+                },
+                methods:{
+                    myReverse:function (){
+                        this.msg = this.msg.split("").reverse().join("");
+                    }
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <span >{{msg}}</span>
+        <!-- v-on:click表示绑定点击事件 -->
+        <!-- v-on可以省略，变成@click -->
+<!--        <input type="button" value="反转"  v-on:click="myReverse" />-->
+        <input type="button" value="反转"  @click="myReverse" />
+    </div>
+</body>
+</html>

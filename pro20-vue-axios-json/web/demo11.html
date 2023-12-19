@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>演示JSON的两个API</title>
+    <script language="JavaScript" src="script/vue.js"></script>
+    <script language="JavaScript" src="script/axios.min.js"></script>
+
+    <script language="JavaScript">
+        function hello01(){
+            //1. js  json String -> js object
+            /*
+            var str="{\"uname\":\"lina\",\"age\":20}";
+            var user = JSON.parse(str);
+            alert(typeof user);
+            alert(user.uname + "_" + user.age);
+             */
+
+            //2.js object -> js String
+            var user = {"uname":"lina","age":99};
+            alert(typeof user);
+            var userStr = JSON.stringify(user);
+            alert(userStr);
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <input type="button"  onclick="hello01()" value="确定"/><br/>
+
+    </div>
+</body>
+</html>

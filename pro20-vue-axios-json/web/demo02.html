@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript" src="script/vue.js"></script>
+    <script language="JavaScript">
+        //定义js的对象方式二：
+        window.onload = function(){
+            var vue = new Vue({
+                "el":"#div0",
+                data:{
+                    msg:"hello!!!",
+                    uname:"张三丰"
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <span>{{msg}}</span>
+        <!-- v-bind表示绑定value属性， v-bind可以省略,也就是直接写成:value -->
+        <!-- <input type="text" v-bind:value="uname"  />  -->
+        <input type="text" :value="uname"  />
+    </div>
+</body>
+</html>

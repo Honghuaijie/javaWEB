@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>02-axios-传送JSON数据给服务器</title>
+    <script language="JavaScript" src="script/vue.js"></script>
+    <script language="JavaScript" src="script/axios.min.js"></script>
+
+    <script language="JavaScript">
+        //定义js的对象方式二：
+        window.onload = function(){
+            var vue = new Vue({
+                "el":"#div0",
+                data:{
+                    uname:"lina",
+                    pwd:"ok"
+                },
+                methods:{
+                    axios02:function(){
+                        axios({
+                            method:"post",
+                            url:"axios02.do",
+                            data:{
+                                uname:vue.uname,
+                                pwd:vue.pwd
+                            }
+                        }).then(function(value){   //成功相应执行的回调
+                            var data = value.data;
+                            vue.uname = data.uname;
+                            vue.pwd = data.pwd;
+
+                            //此处value中的data返回的是js object，因此可以直接点出属性
+                            //如果我们获取的是一个字符串：“{uanme:\"鸠摩智\",pwd:\"ok\"}”
+                            //js语言中也有JSON字符串与JS 对象之间互换的 API
+                            //string = JSON.stringify(object)  object ->String
+                            //object = JSON.parse(string);     string -> object
+                        }).catch(function(reason){
+                            console.log(reason);
+                        });
+                    }
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="div0">
+        uname:<input type="text" v-model="uname" /><br/>
+        pwd:<input type="text" v-model="pwd" /><br/>
+        <input type="button" @click="axios02" value="发送一个JSON格式的参数值的异步请求"/><br/>
+
+    </div>
+</body>
+</html>

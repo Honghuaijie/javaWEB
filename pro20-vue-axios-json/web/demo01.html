@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript">
+        function hello(){
+            person.sayHello();
+        }
+        //定义js的对象方式一：
+        var person = new Object();
+        person.pid = "p001";
+        person.pname="jim";
+        person.sayHello = function(){
+            alert("Hello world");
+        };
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <span>Hello</span>
+        <input type="button" value="打招呼" onclick="hello()" />
+
+    </div>
+</body>
+</html>

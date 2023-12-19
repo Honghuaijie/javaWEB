@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="css/index.css">
+        <script language="JavaScript" src="js/index.js"></script>
+        <meta charset="UTF-8">
+        <title>fruit</title>
+    </head>
+    <body>
+        <div id="div_container">
+            <div id="div_fruit_list">
+
+                <p class="center f30">欢迎使用水果库存后台管理系统</p>
+                <div style="border:0px solid red; width:60%; margin-left:20%;  " >
+                    <!-- 查询区域 -->
+                    <form th:action="@{/fruit.do}" method="post" style="float:left;">
+                        <input type="hidden" name="operate" value="index" />
+                        <!-- 写一个隐藏域，用来表示该请求是查询操作  -->
+                        <input type="hidden" name="oper" value="search"  />
+                        查询关键字: <input name="keyword" type="text" th:value="${session.keyword}" />
+                        <input type="submit" value="查询" class="btn" />
+                    </form>
+                    <a  th:href="@{/add.html}" style="border:0px solid blue; margin-bottom:10px;  float:right; "  >添加新记录</a>
+                </div>
+                <table id="tbl_fruit">
+                    <tr>
+                        <th class="w20"> 名称</th>
+                        <th class="w20"> 单价</th>
+                        <th class="w20"> 库存</th>
+                        <th class="w20"> 操作</th>
+                    </tr>
+<!--                    判断列表是否为空-->
+<!--                    如果为空就执行-->
+                    <tr th:if="${#lists.isEmpty(session.fruitList)}" >
+                        <td colspan="4"> 对不起，库存为空！ </td>
+                    </tr>
+<!--                    如果不为空就执行下面的代码-->
+                    <tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit : ${session.fruitList}" >
+<!--                        <td><a th:text="${fruit.fname}" th:href="@{'/edit.do?fid=' + ${fruit.fid}}">苹果</a></td>-->
+<!--                                                   @{/edit.do}是在跳转到在项目的根路径下           -->
+                        <td><a th:text="${fruit.fname}" th:href="@{/fruit.do(fid=${fruit.fid},operate='edit')}">苹果</a></td>
+                        <td th:text="${fruit.price}">5</td>
+                        <td th:text="${fruit.fcount}">20</td>
+<!--                  方法1      <td ><img src="img/del.png" class="delImg" th:onclick="'delFruit('+${fruit.fid} + ')'"></td>-->
+                        <td ><img src="img/del.png" class="delImg" th:onclick="|delFruit(${fruit.fid})|"></td>
+                    </tr>
+
+                </table>
+                <!--分页操作   -->
+                <div  style=" width:60%; margin-left:20%; " class="center"  >
+                    <input type="button" value="首  页"   class="btn" th:onclick="page(1)" th:disabled="${session.pageNo == 1}" />
+                    <input type="button" value="上一页"  class="btn" th:onclick="|page(${session.pageNo-1})|" th:disabled="${session.pageNo == 1}"/>
+                    <input type="button" value="下一页"  class="btn" th:onclick="|page(${session.pageNo+1})|" th:disabled="${session.pageNo ==session.pageCount}" />
+                    <input type="button" value="尾  页"  class="btn" th:onclick="|page(${session.pageCount})|" th:disabled="${session.pageNo == session.pageCount}" />
+
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

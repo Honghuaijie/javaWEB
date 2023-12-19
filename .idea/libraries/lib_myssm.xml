@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib_myssm">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib_myssm" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/lib_myssm" recursive="false" type="SOURCES" />
+  </library>
+</component>

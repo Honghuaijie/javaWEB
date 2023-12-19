@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" href="css/index.css">
+    <title>edit</title>
+</head>
+<body>
+    <div id="div_container">
+        <div id="div_fruit_list">
+            <p class="center f30">修改库存信息</p>
+            <form th:action="@{/fruit.do}" method="post" >
+                <input type="hidden" name="operate" value="update" />
+                <table id="tbl_fruit" th:object="${session.fruit}" >
+                    <!-- 这里将fid也要发送到update，因为要根据fid来修改对应的记录 -->
+                    <input type="hidden" name="fid" th:value="*{fid}" />
+                    <tr>
+                        <th class="w20"> 名称</th>
+                        <td><input type="text" name="fname" th:value="*{fname}"   /></td>
+                    </tr>
+                    <tr>
+                        <th class="w20"> 单价</th>
+                        <td><input type="text" name="price" th:value="*{price}"  /></td>
+                    </tr>
+                    <tr>
+                        <th class="w20"> 库存</th>
+                        <td><input type="text" name="fcount" th:value="*{fcount}"  /></td>
+                    </tr>
+                    <tr>
+                        <th class="w20"> 备注</th>
+                        <td><input type="text" name="remark" th:value="*{remark}"  /></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <input type="submit" value="提交" />
+
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

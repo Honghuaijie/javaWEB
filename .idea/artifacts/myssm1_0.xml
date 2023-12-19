@@ -1,0 +1,40 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="myssm1.0">
+    <output-path>$PROJECT_DIR$/out/artifacts/myssm1_0</output-path>
+    <root id="archive" name="myssm1.0.jar">
+      <element id="directory" name="come">
+        <element id="directory" name="hhj">
+          <element id="directory" name="myssm">
+            <element id="directory" name="basedao">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/basedao/BaseDao.java" />
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/basedao/JdbcUtilsV2.java" />
+            </element>
+            <element id="directory" name="filters">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/filters/CharacterEncodingFilter.java" />
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/filters/OpenSessionInViewFilter.java" />
+            </element>
+            <element id="directory" name="ioc">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/ioc/BeanFactory.java" />
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/ioc/ClassPathXMLApplicationContext.java" />
+            </element>
+            <element id="directory" name="listener">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/listener/ContextLoaderListener.java" />
+            </element>
+            <element id="directory" name="myspringmvc">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/myspringmvc/DispatcherExpection.java" />
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/myspringmvc/DispatcherServlet.java" />
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/myspringmvc/PageController.java" />
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/myspringmvc/ViewBaseServlet.java" />
+            </element>
+            <element id="directory" name="trans">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/trans/TransactionManager.java" />
+            </element>
+            <element id="directory" name="util">
+              <element id="file-copy" path="$PROJECT_DIR$/pro15-qqzone1.0/src/come/hhj/myssm/util/StringUtil.java" />
+            </element>
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

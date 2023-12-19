@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pro21-book4.0-cart-vue-axios:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/pro21_book4_0_cart_vue_axios_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pro21-book4.0-cart-vue-axios" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="lib_gson" />
+          <element id="library" level="project" name="lib_kaptcha" />
+          <element id="library" level="project" name="lib_thymeleaf" />
+        </element>
+      </element>
+      <element id="library" level="project" name="lib_myssm" />
+      <element id="javaee-facet-resources" facet="pro21-book4.0-cart-vue-axios/web/Web" />
+    </root>
+  </artifact>
+</component>

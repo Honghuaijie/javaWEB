@@ -1,0 +1,67 @@
+<?xml  version="1.0" encoding="utf-8" ?>
+<!-- 文档类型定义 -->
+<!--
+* 表示可以有0-n个
+-->
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean*)>
+        <!ELEMENT bean (property*)>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #IMPLIED>
+        <!ATTLIST property name CDATA #IMPLIED>
+        <!ATTLIST property ref  IDREF #IMPLIED >
+]>
+<beans>
+    <!-- dao层 -->
+    <bean id="userBasicDao" class="come.hhj.qqzone.dao.imp.UserBasicDAOImp">  </bean>
+    <bean id="topicDao" class="come.hhj.qqzone.dao.imp.TopicDAOImp">  </bean>
+    <bean id="replyDao" class="come.hhj.qqzone.dao.imp.ReplyDaoImp">  </bean>
+    <bean id="hostReplyDao" class="come.hhj.qqzone.dao.imp.HostReplyDaoImp">  </bean>
+
+    <!-- 业务层 -->
+    <bean id="userBasicService" class="come.hhj.qqzone.service.impl.UserBasicServiceImpl">
+        <property name="userBasicDao" ref="userBasicDao" />
+    </bean>
+
+    <bean id="topicService" class="come.hhj.qqzone.service.impl.TopicServiceImpl">
+        <property name="topicDao" ref="topicDao"/>
+        <property name="replyService" ref="replyService"/>
+    </bean>
+
+    <bean id="replyService" class="come.hhj.qqzone.service.impl.ReplyServiceImpl">
+        <property name="replyDao" ref="replyDao"/>
+        <property name="hostReplyService" ref="hostReplyService"/>
+        <property name="userBasicService" ref="userBasicService"/>
+    </bean>
+
+    <bean id="hostReplyService" class="come.hhj.qqzone.service.impl.HostReplyServiceImpl">
+        <property name="hostReplyDao" ref="hostReplyDao"/>
+    </bean>
+
+
+    <!-- 控制层 -->
+    <bean id="user" class="come.hhj.qqzone.Controller.UserController">
+        <property name="userBasicService" ref="userBasicService" />
+        <property name="topicService" ref="topicService" />
+    </bean>
+    <bean id="topic" class="come.hhj.qqzone.Controller.TopicController">
+        <property name="topicService" ref="topicService" />
+        <property name="replyService" ref="replyService" />
+    </bean>
+    <bean id="reply" class="come.hhj.qqzone.Controller.ReplyController">
+        <property name="replyService" ref="replyService" />
+    </bean>
+    <bean id="hostReply" class="come.hhj.qqzone.Controller.HostReplyController">
+        <property name="hostReplyService" ref="hostReplyService" />
+    </bean>
+
+    <bean id="page" class="come.hhj.myssm.myspringmvc.PageController">
+    </bean>
+</beans>
+
+
+
+
+

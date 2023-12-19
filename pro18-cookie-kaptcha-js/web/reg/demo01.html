@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+    正则表达式的使用三步骤：
+    1、定义正则表达式
+        正则表达式定义有两种方式
+        1）对象形式
+            new RegExp("abc")
+        2) 直接量的形式
+            var reg = //;
+    2、定义待校验的字符串
+    3、校验
+    -->
+    <script language="JavaScript">
+        //1.定义正则表达式
+        var reg = /abc/;
+        // var reg = new RegExp("bca");
+        //2.定义待校验的字符串
+        var str = "abcaefg";
+        //3.校验
+        var flag= reg.test(str);
+        console.log(flag);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
